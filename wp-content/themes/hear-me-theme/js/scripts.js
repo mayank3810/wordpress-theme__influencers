@@ -1,19 +1,21 @@
+import '../css/style.css';
+
 // Sticky Header
+window.onscroll = function() {add_sticky_class()};
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {sticky_header()};
-
-// Get the header
-var header = document.getElementById("navbar");
-
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function sticky_header() {
+function add_sticky_class() {
   if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
+    navbar.classList.add("header-sticky");
   } else {
-    header.classList.remove("sticky");
+    navbar.classList.remove("header-sticky");
   }
 }
+
+// Allow new JS and CSS to load in browser without a traditional page refresh
+if (module.hot) {
+    module.hot.accept()
+  }
+  
+

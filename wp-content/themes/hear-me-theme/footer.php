@@ -1,4 +1,4 @@
-<section id="contact" class="subscribe-area pt-100 jarallax">
+<section id="contact" class="subscribe-area pt-100 jarallax" style="background-image: url(<?php echo get_theme_file_uri('/images/subscribe-bg.jpg') ?>)">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-12">

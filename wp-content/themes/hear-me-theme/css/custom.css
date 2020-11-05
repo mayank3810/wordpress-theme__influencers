@@ -1,0 +1,97 @@
+/* header */
+
+.header-sticky {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+
+    animation: fadeInDown;
+    animation-duration: 0.8s;
+}
+
+#navbar {
+    padding: 5px;
+}
+
+.navbar-brand {
+    margin-top: 20px;;
+
+}
+
+/* newsletter button */
+
+/* .gradient {
+    position: relative;
+    background-image: linear-gradient(
+      to right,
+      hsl(211, 100%, 50%),
+      hsl(179, 100%, 30%)
+    );
+    z-index: 1;
+  }
+  
+  .gradient::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      to bottom,
+      hsl(344, 100%, 50%),
+      hsl(31, 100%, 40%)
+    );
+    z-index: -1;
+    transition: opacity 0.5s linear;
+    opacity: 0;
+  }
+  
+  .gradient:hover::before {
+    opacity: 1;
+  } */
+
+  /* News letter join button*/
+
+  .join-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    background-color: #ee0979;
+    background-image: linear-gradient(to left bottom, #ee0979, #fc1c62, #ff364a, #ff512f, #ff6a00);
+    box-shadow: none;
+    border-radius: 0 30px 0 0;
+    padding: 0px 25px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 1s ease !important;
+}
+.join-button:hover {
+    cursor: pointer;
+    color: white;
+    background: #ee0979;
+}
+
+#major-page-select-box{
+  color: #ee0979;
+  background-color: aqua;
+}
+
+.single-followers-box{
+  max-height: 450px !important;
+  height: 450px !important;
+  overflow: hidden;
+}
+
+.bio {
+  height: 180px;
+  max-height: 180px;
+  overflow: auto !important;
+}

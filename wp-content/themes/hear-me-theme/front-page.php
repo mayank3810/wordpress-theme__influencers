@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header();
+      include 'additional-php-function.php';
+?>
 
 
 
@@ -7,15 +9,16 @@
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-12">
                 <div class="main-banner-content">
-                    <h1>Hi, I&#x27;M <br /><?php the_title(); ?></h1>
-                    <p><?php the_content();?></p>
+                    <div id="blank"></div>
+                    <h1>Hii, I&#x27;M <br /><?php echo get_field('name'); ?></h1>
+                    <p><?php echo get_field('description'); ?></p>
                     <form>
                         <?php
-                        // echo do_shortcode("[email-subscribers-form id='2']"); 
+                        echo do_shortcode("[contact-form-7 id='63' title='Newsletter']"); 
                         
                         ?>
-                        <input type="text" class="input-newsletter" placeholder="Enter your email address" />
-                        <button type="submit">Join with me now</button>
+                        <!-- <input type="text" class="input-newsletter" placeholder="Enter your email address" />
+                        <button type="submit">Join with me now</button> -->
                     </form>
                 </div>
             </div>
@@ -31,30 +34,112 @@
 <section class="followers-area bg-f9f9f9 pt-100">
     <div class="container">
         <div class="section-title"><span class="sub-title">What Do I Love</span>
-            <h2>I&#x27;m a Instagram influencer designer running my own design studio</h2>
-        </div>
+
+            <h2><?php echo get_field('what_do_i_love') ?></h2>
+        </div> 
         <div class="row">
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="single-followers-box">
-                    <h3>275K</h3><span class="sub-title d-block">Instagram followers</span><a class="link" href="#"><i class="fab fa-instagram"></i> @alikamaya</a>
-                    <div class="line"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        <?php
+                $page = get_field('social_media_pages');
+                $page_selected_1 = $page[0];
+                $page_selected_2 = $page[1];
+                $page_selected_3 = $page[2];
+
+                if ($page_selected_1 == 'instagram') { ?>
+
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="single-followers-box">
+                        <h3>
+                            <?php 
+                                
+                                // Pulling Live instagram followers
+                                $page = get_field('instagram_user_id');
+                                echo instagram_user_info($page);
+                            ?>
+                        </h3><span class="sub-title d-block">Instagram followers</span><a class="link" href="https://instagram.com/<?php echo $page; ?>/"><i class="fab fa-instagram"></i> @<?php echo $page ?></a>
+                        <div class="line"></div>
+                        <p class ="bio" ><?php echo get_field('instagram_bio'); ?>.</p>
+                    </div>
+                </div> 
+
+                <?php }
+
+                if ($page_selected_1 == 'twitter' or $page_selected_2 == 'twitter' or $page_selected_3 =='twitter' ) { ?>
+
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="single-followers-box">
+                        <h3>
+                            <?php 
+                                
+                                // Pulling Live twitter followers
+                                $page = get_field('twitter_user_id');
+                                echo '211K';
+                            ?>
+                        </h3><span class="sub-title d-block">Twitter followers</span><a class="link" href="#"><i class="fab fa-twitter"></i> @<?php echo $page ?></a>
+                        <div class="line"></div>
+                        <p class ="bio" ><?php echo get_field('twitter_bio'); ?>.</p>
+                    </div>
+                </div> 
+
+                <?php }
+
+                if ($page_selected_1 == 'facebook' or $page_selected_2 == 'facebook' or $page_selected_3 == 'facebook' ) { ?>
+
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="single-followers-box">
+                        <h3>
+                            <?php 
+                                
+                                // Pulling Live facebook followers
+                                $page = get_field('facebook_id');
+                                echo '315K';
+                            ?>
+                        </h3><span class="sub-title d-block">Facebook followers</span><a class="link" href="#"><i class="fab fa-facebook"></i> @<?php echo $page ?></a>
+                        <div class="line"></div>
+                        <p class ="bio" ><?php echo get_field('facebook_about'); ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="single-followers-box">
-                    <h3>125K</h3><span class="sub-title d-block">Twitter followers</span><a class="link" href="#"><i class="bx bxl-twitter"></i> @alikamaya</a>
-                    <div class="line"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+
+                <?php }
+
+                if ($page_selected_1 == 'pinterest' or $page_selected_2 == 'pinterest' or $page_selected_3 == 'pinterest' ) { ?>
+
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="single-followers-box">
+                        <h3>
+                            <?php 
+                                
+                                // Pulling Live pinterest followers
+                                $page = get_field('pinterest_user_id');
+                                echo '315K';
+                            ?>
+                        </h3><span class="sub-title d-block">Pinterest followers</span><a class="link" href="#"><i class="fab fa-pinterest"></i> @<?php echo $page ?></a>
+                        <div class="line"></div>
+                        <p class ="bio" ><?php echo get_field('pinterest_bio'); ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6 offset-lg-0 offset-md-3 offset-sm-3">
-                <div class="single-followers-box">
-                    <h3>178K</h3><span class="sub-title d-block">YouTube subscribers</span><a class="link" href="#"><i class="bx bxl-youtube"></i> @alikamaya</a>
-                    <div class="line"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+
+                <?php }
+
+                if ($page_selected_1 == 'youtube' or $page_selected_2 == 'youtube' or $page_selected_3 == 'youtube' ) { ?>
+
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="single-followers-box">
+                        <h3>
+                            <?php 
+                                
+                                // Pulling Live youtube followers
+                                $page = get_field('youtube_channel_name');
+                                echo '315K';
+                            ?>
+                        </h3><span class="sub-title d-block">Youtube followers</span><a class="link" href="#"><i class="fab fa-youtube"></i> @<?php echo $page ?></a>
+                        <div class="line"></div>
+                        <p class ="bio" ><?php echo get_field('youtube_bio'); ?></p>
+                    </div>
                 </div>
-            </div>
+
+                <?php }
+
+        ?>
         </div>
     </div>
     <div class="shape1"><img src="<?php echo get_theme_file_uri('images/insta-shape1.png')?>" alt="image" /></div>
@@ -81,7 +166,7 @@
 <section id="socialStatistics" class="social-statistics-area pt-100">
     <div class="container">
         <div class="section-title">
-            <h2>Social Statistics</h2>
+            <h2>Social Statistics <?php echo $page_selected[0]; ?></h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class="row">
